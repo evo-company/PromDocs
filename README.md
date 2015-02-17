@@ -4,3 +4,4 @@
 ## Client side resources
 - [Создание нового модуля на базе Rx.js + React.js с помощью Yeoman](https://github.com/Prom-ua/PromDocs/blob/master/ClientSide/new_module_with_yeoman.md)
 - [Архитектура javascript модулей с использованием Rx.js и React.js (RxReact)](https://github.com/Prom-ua/PromDocs/blob/master/ClientSide/rxreact_modules_architecture_overview.md)
+- [тестирование javascript модулей Jasmine](https://github.com/Prom-ua/PromDocs/blob/master/ClientSide/testing_jasmine.md)
