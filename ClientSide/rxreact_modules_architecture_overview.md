@@ -125,6 +125,8 @@ HelloView = React.createClass
             button
                 onClick: @incrementClickCount
                 "Click"
+
+module.exports = HelloView
 ```
 
 Из примера выше видно, что view сигнализирует о неком событии (клика по кнопке) с помощью eventStream. Сам же компонент не имеет понятия о том как и что дальше будет происходить, его задача только отрисовка состояния (view state) и оповещение о неких событиях.
@@ -142,6 +144,8 @@ class HelloStorage
 
     incrementClicksCount: ->
         @clicksCount += 1
+
+module.exports = HelloStorage
 ```
 
 В данном примере storage это обычный coffeescript класс.
