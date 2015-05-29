@@ -8,3 +8,4 @@
 
 ## Доклады
 - [Rx.js - rethink async with rx (29.05.2015 Александр Мостовенко)](https://github.com/Prom-ua/PromDocs/blob/master/Talks/rxjs_who_where_and_why.pdf)
+- [here x comes (29.05.2015 Антон Веринов)](http://prom-ua.github.io/PromDocs/Talks/rxlides/)
