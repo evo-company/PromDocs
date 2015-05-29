@@ -21,14 +21,19 @@
     <div class="wrapper">
         <table>
             <tr>
-                <td style="color: black" rowspan="4">
-                    <span>
-                        Promise(onclick).then(<br/>
-                        &nbsp;&nbsp;click => Promise(xhr)<br/>
-                        ).then(<br/>
-                        &nbsp;&nbsp;resp => {}<br/>
-                        )
-                    </span>
+                <td style="color: black;" rowspan="4">
+                        <div style="padding-top: 2vw">
+                        Promise(onclick)<br/>
+                        </div>
+                        <div style="padding-top: 2vw">
+                        &nbsp;&nbsp;.then(click => {<br/>
+                        </div>
+                        <div style="padding-top: 2vw">
+                        &nbsp;&nbsp;&nbsp;&nbsp;return Promise(xhr)<br/>
+                        </div>
+                        <div style="padding-top: 2vw">
+                        &nbsp;&nbsp;}).then(resp => {})
+                        </div>
                 </td>
                 <td>&rarr;</td>
                 <td class="colored">click</td>
@@ -43,7 +48,7 @@
             </tr>
             <tr><td>&darr;</td><td>.then</td></tr>
             <tr>
-                <td align="right" style="font-size: 1.8vw; color: gray">
+                <td align="right" style="font-size: 1.8vw; color: gray" colspan="2">
                     * pseudo promises
                 </td>
             </tr>

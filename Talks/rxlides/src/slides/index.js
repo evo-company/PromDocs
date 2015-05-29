@@ -1,3 +1,4 @@
+import Rx from 'rx'
 import zipObject from 'lodash.zipobject'
 
 import mapFilterFlatmap from './map_filter_flatmap.js'
@@ -12,8 +13,26 @@ import gifflixDemo from './gifflix_demo.js'
 import componentsCommunication from './components_communication.js'
 import summary from './summary.js'
 
+const puns = [
+  'Tyrannosaurus Rx',
+  'Rx-xar, the Hunter',
+  'Rxless',
+  'Rx and Morty',
+]
+
+var indexLogic = () => {
+  Rx.Observable.interval(1000)
+    .zip(
+      Rx.Observable.from(puns),
+      (m, pun) => pun
+    )
+    .take(puns.length)
+    .repeat()
+    .subscribe(pun => document.getElementsByTagName('h1')[0].textContent = pun )
+}
+
 const slides = [
-  ['index', null],
+  ['index', indexLogic],
   ['ui', null],
   ['single_callback', singleCallback],
   ['microsoft_xhr', null],

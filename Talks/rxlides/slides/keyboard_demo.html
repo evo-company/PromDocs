@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>rxlides</title>
+    <title>rxlides/keyboard_demo</title>
     <meta property="page" content="keyboard_demo">
     <link rel="stylesheet" type="text/css" href="../dist/common.css">
     <style type="text/css">
@@ -14,7 +14,7 @@
         }
         span.wasd.active { background-color: #00A500; color: #DFFEE3; }
 
-        @media screen {
+        @media (max-width: 1000px) {
             .wrapper { margin: 20px auto; }
         }
     </style>
@@ -50,8 +50,8 @@
                         <br/>
                     </span>
                     <span id="part_4">
-                        var <b>mappedUps</b> = keyups.map(null)<br/>
-                        mappedUps.subscribe(setActive)<br/>
+                        var <b>mappedKeyups</b> = keyups.map(null)<br/>
+                        mappedKeyups.subscribe(setActive)<br/>
                     </span>
                 </td>
                 <td align="right">

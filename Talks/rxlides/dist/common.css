@@ -8,7 +8,7 @@ table { width: inherit; -webkit-text-size-adjust: none; }
 nav { font-size: 1vw; position: fixed; bottom: 0; right: 0; margin: 1vw; text-align: right; z-index: -1;}
 nav .slide_name { display: block; z-index: -1; color: gray;}
 
-@media screen {
+@media (max-width: 1000px) {
   .wrapper {width: 95vw;}
   canvas { margin-top: -2vw; }
   nav .arrow { display: none; }

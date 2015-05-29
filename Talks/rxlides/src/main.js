@@ -4,9 +4,9 @@ import {slideLogic, nextSlide, prevSlide} from './slides'
 import 'babel/polyfill'
 
 var metaPage = document.querySelector('meta[property=page]').content
+slideLogic(metaPage)
 if (metaPage !== 'index') {
   document.querySelector('nav .slide_name').textContent = 'slides/' + metaPage
-  slideLogic(metaPage)
 }
 
 const [LEFT, UP, RIGHT, DOWN] = [37, 38, 39, 40]

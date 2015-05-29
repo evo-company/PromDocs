@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>rxlides</title>
+    <title>rxlides/single_callback</title>
     <meta property="page" content="single_callback">
     <link rel="stylesheet" type="text/css" href="../dist/common.css">
     <style type="text/css">
-        .wrapper {margin: 35vh auto; text-align: center; }
+        .wrapper {margin: 38vh auto; text-align: center; }
         .canvas-wrapper { color: gray; }
         .canvas-wrapper::before { content: "["; }
         .canvas-wrapper::after { content: "]"; }
     </style>
 </head>
-<body style="font: 3.5vw monospace;">
+<body style="font: 3vw monospace;">
     <div class="wrapper">
         <div>
             <span style="color: gray"> // events == </span>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <span>
-            document.onclick = (<span id="subscribe_arg">event</span>) => {}
+            document.onclick = function (<span id="subscribe_arg">event</span>) {}
         </span>
     </div>
     <nav>
