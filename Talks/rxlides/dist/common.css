@@ -1,0 +1,15 @@
+body { margin: 0; background-color: #DFFEE3; }
+.wrapper {margin: 10vh auto; width: 90vw;}
+.canvas-wrapper { display: inline; color: #00A500}
+.canvas-wrapper::before { content: "<"; }
+.canvas-wrapper::after { content: ">"; }
+canvas { margin-bottom: -5px; }
+table { width: inherit; -webkit-text-size-adjust: none; }
+nav { font-size: 1vw; position: fixed; bottom: 0; right: 0; margin: 1vw; text-align: right; z-index: -1;}
+nav .slide_name { display: block; z-index: -1; color: gray;}
+
+@media screen {
+  .wrapper {width: 95vw;}
+  canvas { margin-top: -2vw; }
+  nav .arrow { display: none; }
+}

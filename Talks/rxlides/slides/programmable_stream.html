@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rxlides</title>
+    <meta property="page" content="programmable_stream">
+    <link rel="stylesheet" type="text/css" href="../dist/common.css">
+    <style type="text/css">
+        .wrapper {margin: 20vh auto; }
+        .canvas-wrapper { color: gray; }
+        table { vertical-align: top; }
+    </style>
+</head>
+<body style="font: 1.7vw monospace;">
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td>
+                    <span style="color: gray">// controller.js</span>
+                    <br/>
+                    <span id="part_1">
+                    import Rx from 'rx'<br/>
+                    import React from 'react'<br/>
+                    import Btn from './component'<br/>
+                    </span>
+                    <br/>
+                    <span id="part_2">
+                    var <b>bus</b> = new Rx.Subject()<br/>
+                    var <b>button</b> = React.render(Btn, {bus})<br/>
+                    </span>
+                    <br/>
+                    <span id="part_3">
+                    var <b>propsStream</b> = bus<br/>
+                    &nbsp;&nbsp;.filter(e => e.type === 'click')<br/>
+                    &nbsp;&nbsp;.map(e => getNewProps(e))<br/>
+                    </span>
+                    <br/>
+                    <span id="part_4">
+                    propsStream.subscribe(props => {<br/>
+                    &nbsp;&nbsp;button.setProps(props)<br/>
+                    })
+                    </span>
+                </td>
+                <td>
+                    <span style="color: gray">// component.js</span>
+                    <br/>
+                    <span id="part_5">
+                    import React from 'react'<br/>
+                    <br/>
+                    export default React.createClass({<br/>
+                    &nbsp;&nbsp;displayName: 'Btn',<br/>
+                    <span id="part_6">
+                    &nbsp;&nbsp;onClick: e => {<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;this.props.bus.onNext(e)<br/>
+                    &nbsp;&nbsp;},<br/>
+                    </span>
+                    &nbsp;&nbsp;render: () => React.DOM.div(<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{onClick: this.onClick},<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;'click me'<br/>
+                    &nbsp;&nbsp;),<br/>
+                    })
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <nav>
+        <span class="arrow">&larr;</span>
+        <span class="arrow" id="nav_u">&nbsp;</span>
+        <span class="arrow" id="nav_d">&nbsp;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="slide_name">&nbsp;</a>
+    </nav>
+    <script type="text/javascript" src="../dist/main.js"></script>
+</body>
+</html>

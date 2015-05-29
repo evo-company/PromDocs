@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rxlides</title>
+    <meta property="page" content="interval_demo">
+    <link rel="stylesheet" type="text/css" href="../dist/common.css">
+    <style type="text/css">
+        .wrapper { margin: 15vh auto 0; }
+    </style>
+</head>
+<body style="font: 2vw monospace;">
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td colspan="2">
+                    var <b>keyups</b> = Rx.Observable.fromEvent(document.body, 'keyup')
+                </td>
+            </tr>
+            <tr id="main">
+                <td>&nbsp;</td>
+                <td align="right">
+                    <div class="canvas-wrapper">
+                        <canvas width="400" height="38"></canvas>
+                    </div>
+                </td>
+            </tr>
+            <tr id="qs"> 
+                <td colspan="2">
+                    var <b>qs</b> = keys.filter(e => e.keyCode === Q)
+                </td>
+            </tr>
+            <tr id="ws"> 
+                <td colspan="2">
+                    var <b>ws</b> = keys.filter(e => e.keyCode === W)
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr id="part_0" hidden> 
+                <td>
+                    var <b>skipped</b> = qs.skipUntil(ws)
+                </td>
+                <td align="right">
+                    <div class="canvas-wrapper">
+                        <canvas width="400" height="38"></canvas>
+                    </div>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr id="part_1" hidden> 
+                <td>
+                    var <b>delayed</b> = qs.delay(1000)
+                </td>
+                <td align="right">
+                    <div class="canvas-wrapper">
+                        <canvas width="400" height="38"></canvas>
+                    </div>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr id="part_2" hidden> 
+                <td>
+                    var <b>intervals</b> = qs.timeInterval()<br/>
+                    &nbsp;&nbsp;.map(v => v.interval/1000)
+                </td>
+                <td align="right">
+                    <div class="canvas-wrapper">
+                        <canvas width="400" height="38"></canvas>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <nav>
+        <span class="arrow">&larr;</span>
+        <span class="arrow" id="nav_u">&nbsp;</span>
+        <span class="arrow" id="nav_d">&nbsp;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="slide_name">&nbsp;</a>
+    </nav>
+    <script type="text/javascript" src="../dist/main.js"></script>
+</body>
+</html>

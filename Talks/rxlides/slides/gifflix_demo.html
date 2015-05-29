@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rxlides</title>
+    <meta property="page" content="gifflix_demo">
+    <link rel="stylesheet" type="text/css" href="../dist/common.css">
+    <style type="text/css">
+        .wrapper { margin: 10vh auto 0; width: 50vw; }
+        .gif-wrap { width: 16vw; height: 19vh; overflow: hidden; }
+        .gif_cell { cursor: pointer; }
+        .gif_cell img { width: 100%; }
+        .transparent {opacity: 0.6}
+        .star { display: none; }
+        .star.visible { display: inline; }
+
+        @media screen {
+          .star { display: inline; }
+          #part_1 { display: inline; }
+        }
+    </style>
+</head>
+<body style="font: 3vw monospace;">
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td colspan="3" align="right">
+                    &nbsp;
+                    <b id="part_1" hidden>[<span class="star_count">3</span>]</b>
+                </td>
+            </tr>
+            <tr>
+                <td class="gif_cell" data-id="0">
+                    id:0 <span class="star">☆</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/0_200w.gif">
+                    </div>
+                </td>
+                <td class="gif_cell" data-id="1">
+                    id:1 <span class="star">★</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/1_200w.gif">
+                    </div>
+                </td>
+                <td class="gif_cell" data-id="2">
+                    id:2 <span class="star">★</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/2_200w.gif">
+                    </div>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td class="gif_cell" data-id="2">
+                    id:2 <span class="star">★</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/2_200w.gif">
+                    </div>
+                </td>
+                <td class="gif_cell" data-id="3">
+                    id:3 <span class="star">☆</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/3_200w.gif">
+                    </div>
+                </td>
+                <td class="gif_cell" data-id="4">
+                    id:4 <span class="star">★</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/4_200w.gif">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <nav>
+        <span class="arrow">&larr;</span>
+        <span class="arrow" id="nav_u">&nbsp;</span>
+        <span class="arrow" id="nav_d">&nbsp;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="slide_name">&nbsp;</a>
+    </nav>
+    <script type="text/javascript" src="../dist/main.js"></script>
+</body>
+</html>

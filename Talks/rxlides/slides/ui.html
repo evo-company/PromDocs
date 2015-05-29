@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rxlides/ui</title>
+    <meta property="page" content="ui">
+    <link rel="stylesheet" type="text/css" href="../dist/common.css">
+    <style type="text/css">
+      .wrapper {
+        margin: 25vh auto;
+        text-align: center;
+        position: relative;
+      }
+      .wrapper span.ui {
+        font-size: 3.5vw;
+        background-color: #DFFEE3;
+        position: absolute;
+        top: 8vh;
+        left: 44%;
+        padding: 2vw;
+      }
+      table {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      td {
+        border-radius: 1vw;
+        padding: 5vh;
+      }
+    </style>
+</head>
+<body style="font: 2vw monospace;">
+    <div class="wrapper">
+        <span class="ui">UI</span>
+        <table>
+          <tr>
+            <td colspan="2" style="color: white; background-color: #55acee;">tweet</td>
+            <td style="background-color: white;"><span style="color: red">s</span>earch</td>
+            <td style="color: white; background-color: #00C1F1;">sell</td>
+          </tr>
+          <tr>
+            <td style="color: white; background-color: gray;">post</td>
+            <td style="color: white; background-color: purple;">watch</td>
+            <td colspan="2" style="color: white; background-color: #00A500;">send</td>
+          </tr>
+          <tr>
+            <td style="color: white; background-color: #4c66a4;">like</td>
+            <td colspan="2" style="background-color: pink;">download</td>
+            <td style="color: white; background-color: #F87524;">buy</td>
+          </tr>
+        </table>
+    </div>
+    <nav>
+        <span class="arrow">&larr;</span>
+        <span class="arrow" id="nav_u">&nbsp;</span>
+        <span class="arrow" id="nav_d">&nbsp;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="slide_name">&nbsp;</a>
+    </nav>
+    <script type="text/javascript" src="../dist/main.js"></script>
+</body>
+</html>

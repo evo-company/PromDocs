@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rxlides</title>
+    <meta property="page" content="keyboard_demo">
+    <link rel="stylesheet" type="text/css" href="../dist/common.css">
+    <style type="text/css">
+        .wrapper { margin: 70px auto; }
+        span.wasd {
+            border: 2px solid #00A500;
+            color: #00A500;
+            padding: 1.5vw 5vw 5vw 1.5vw;
+            font-size: 3vw;
+        }
+        span.wasd.active { background-color: #00A500; color: #DFFEE3; }
+
+        @media screen {
+            .wrapper { margin: 20px auto; }
+        }
+    </style>
+</head>
+<body style="font: 2vw monospace;">
+    <div class="wrapper">
+        <table>
+            <tr> 
+                <td colspan="2">
+                    <span id="part_1">
+                        var body = document.body<br/>
+                        var <b>keyups</b> = Rx.Observable.fromEvent(body, 'keyup')<br/>
+                        var <b>keydowns</b> = Rx.Observable.fromEvent(body, 'keydown')<br/>
+                        var <b>startStream</b> = keydowns.filter(e => e.keyCode === Q)<br/>
+                        var <b>stopStream</b> = keydowns.filter(e => e.keyCode === E)<br/>
+                        <br/>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id="part_2">
+                        var <b>keyStreams</b> = startStream<br/>
+                        &nbsp;&nbsp;.map(q => keydowns<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.startWith(q)<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.takeUntil(stopStream)<br/>
+                        &nbsp;&nbsp;)<br/>
+                        <br/>
+                    </span>
+                    <span id="part_3">
+                        var <b>latestKeydowns</b> = streams.switch()<br/>
+                        latestKeydowns.subscribe(setActive)<br/>
+                        <br/>
+                    </span>
+                    <span id="part_4">
+                        var <b>mappedUps</b> = keyups.map(null)<br/>
+                        mappedUps.subscribe(setActive)<br/>
+                    </span>
+                </td>
+                <td align="right">
+                    <div>
+                        <div style="margin-bottom: 8vw; margin-right: 5.5vw;">
+                            <span id="wasd_q" class="wasd">Q</span>
+                            <span id="wasd_w" class="wasd">W</span>
+                            <span id="wasd_e" class="wasd">E</span>
+                        </div>
+
+                        <div style="margin-left: 3.5vw; margin-right: 2vw;">
+                            <span id="wasd_a" class="wasd">A</span>
+                            <span id="wasd_s" class="wasd">S</span>
+                            <span id="wasd_d" class="wasd">D</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <nav>
+        <span class="arrow">&larr;</span>
+        <span class="arrow" id="nav_u">&nbsp;</span>
+        <span class="arrow" id="nav_d">&nbsp;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="slide_name">&nbsp;</a>
+    </nav>
+    <script type="text/javascript" src="../dist/main.js"></script>
+</body>
+</html>

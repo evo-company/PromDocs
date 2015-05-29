@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rxlides/promises_chain</title>
+    <meta property="page" content="promises_chain">
+    <link rel="stylesheet" type="text/css" href="../dist/common.css">
+    <style type="text/css">
+      .wrapper {
+        margin: 22vh auto;
+      }
+      table { width: 70vw; margin: 0 auto; font-size: 3vw; color: #00A500; }
+      td.colored {
+        color: #DFFEE3;
+        border-radius: 1vw;
+        background-color: #00A500;
+        padding: 2vw;
+      }
+    </style>
+</head>
+<body style="font: 2vw monospace;">
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td style="color: black" rowspan="4">
+                    <span>
+                        Promise(onclick).then(<br/>
+                        &nbsp;&nbsp;click => Promise(xhr)<br/>
+                        ).then(<br/>
+                        &nbsp;&nbsp;resp => {}<br/>
+                        )
+                    </span>
+                </td>
+                <td>&rarr;</td>
+                <td class="colored">click</td>
+            </tr>
+            <tr>
+                <td>&darr;</td>
+                <td>.then</td>
+            </tr>
+            <tr>
+                <td>&rarr;</td>
+                <td class="colored">xhr</td>
+            </tr>
+            <tr><td>&darr;</td><td>.then</td></tr>
+            <tr>
+                <td align="right" style="font-size: 1.8vw; color: gray">
+                    * pseudo promises
+                </td>
+            </tr>
+        </table>
+    </div>
+    <nav>
+        <span class="arrow">&larr;</span>
+        <span class="arrow" id="nav_u">&nbsp;</span>
+        <span class="arrow" id="nav_d">&nbsp;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="slide_name">&nbsp;</a>
+    </nav>
+    <script type="text/javascript" src="../dist/main.js"></script>
+</body>
+</html>

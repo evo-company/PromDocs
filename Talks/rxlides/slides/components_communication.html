@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rxlides</title>
+    <meta property="page" content="components_communication">
+    <link rel="stylesheet" type="text/css" href="../dist/common.css">
+    <style type="text/css">
+        .wrapper { margin: 3vh auto 0; }
+        .gif-wrap { width: 16vw; height: 19vh; overflow: hidden; }
+        .gif_cell { cursor: pointer; }
+        .gif_cell img { width: 100%; opacity: 0.4 }
+        @media screen {
+            .wrapper { margin: 1vh auto 0; }
+        }
+    </style>
+</head>
+<body style="font: 1.4vw monospace;">
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td id="part_1" rowspan="2">
+                    onClick: <b>send_via_appbus</b>({<br/>
+                    &nbsp;&nbsp;to: <b>'favorites'</b>,<br/>
+                    &nbsp;&nbsp;from: 'star_' + id,<br/>
+                    &nbsp;&nbsp;tell: <b>'singleFavUpdate'</b>,<br/>
+                    &nbsp;&nbsp;data: {id, active: !active},<br/>
+                    })
+                </td>
+                <td colspan="3" align="right">
+                    <b style="font-size: 2vw">[<span class="star_count">3</span>]</b>
+                </td>
+            </tr>
+            <tr>
+                <td class="gif_cell" data-id="0">
+                    id:0 <span class="star">☆</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/0_200w.gif">
+                    </div>
+                </td>
+                <td class="gif_cell" data-id="1">
+                    id:1 <span class="star">★</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/1_200w.gif">
+                    </div>
+                </td>
+                <td class="gif_cell" data-id="2">
+                    id:2 <span class="star">★</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/2_200w.gif">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td id="part_2">
+                    var <b>favsStream</b> = <b>get_appbus()</b><br/>
+                    &nbsp;&nbsp;.filter(v => v.from === 'favorites')<br/>
+                    &nbsp;&nbsp;.filter(v => v.tell === <b>'favsUpdate'</b>)<br/>
+                    &nbsp;&nbsp;.pluck('data')<br/>
+                </td>
+                <td class="gif_cell" data-id="2">
+                    id:2 <span class="star">★</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/2_200w.gif">
+                    </div>
+                </td>
+                <td class="gif_cell" data-id="3">
+                    id:3 <span class="star">☆</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/3_200w.gif">
+                    </div>
+                </td>
+                <td class="gif_cell" data-id="4">
+                    id:4 <span class="star">★</span><br/>
+                    <div class="gif-wrap">
+                        <img src="../gifs/4_200w.gif">
+                    </div>
+                </td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td id="part_3">
+                    var <b>singleStream</b> = favsStream<br/>
+                    &nbsp;&nbsp;.map(favs => favs.has(id))<br/>
+                    &nbsp;&nbsp;.subscribe(active => {<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;component.setProps({active})<br/>
+                    &nbsp;&nbsp;})
+                </td>
+                <td colspan="3" rowspan="2">
+                    <span id="part_5">
+                    <b>get_appbus()</b><br/>
+                    &nbsp;&nbsp;.filter(v => v.tell === <b>'singleFavUpdate'</b>)<br/>
+                    &nbsp;&nbsp;.pluck('data')<br/>
+                    &nbsp;&nbsp;.scan(new Set(), (acc, v) => {<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;v.active ? acc.add(v.id) : acc.delete(v.id)<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return acc<br/>
+                    &nbsp;&nbsp;})<br/>
+                    </span>
+                    <span id="part_6">
+                    &nbsp;&nbsp;.map(favs => ({<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;to: '*', from: 'favorites',<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;tell: <b>'favsUpdate'</b>, data: favs,<br/>
+                    &nbsp;&nbsp;}))<br/>
+                    &nbsp;&nbsp;.subscribe(<b>send_via_appbus</b>)
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td id="part_4">
+                    <br/>
+                    var <b>countStream</b> = favsStream<wbr/>.pluck('size')<br/>
+                    countStream.subscribe(count => {<br/>
+                    &nbsp;&nbsp;component.setProps({count})<br/>
+                    })
+                </td>
+            </tr>
+        </table>
+    </div>
+    <nav>
+        <span class="arrow">&larr;</span>
+        <span class="arrow" id="nav_u">&nbsp;</span>
+        <span class="arrow" id="nav_d">&nbsp;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="slide_name">&nbsp;</a>
+    </nav>
+    <script type="text/javascript" src="../dist/main.js"></script>
+</body>
+</html>

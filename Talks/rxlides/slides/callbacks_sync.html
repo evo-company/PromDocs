@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rxlides</title>
+    <meta property="page" content="callbacks_sync">
+    <link rel="stylesheet" type="text/css" href="../dist/common.css">
+    <style type="text/css">
+      .wrapper { margin: 20vh auto; text-align: center; }
+      table { width: 60vw; margin: 0 auto; font-size: 3vw; color: #00A500; }
+      td.colored {
+        color: #DFFEE3;
+        border-radius: 1vw;
+        background-color: #00A500;
+        padding: 1vw;
+        width: 25vw;
+      }
+      td.smaller {
+        font-size: 2vw;
+      }
+    </style>
+</head>
+<body style="font: 2vw monospace;">
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td class="colored" rowspan="6">main.js</td>
+                <td>&rarr;</td>
+                <td class="colored">.onclick</td>
+            </tr>
+            <tr>
+                <td>&darr;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&rarr;</td>
+                <td class="colored smaller">.onreadystatechange</td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td></tr>
+        </table>
+    </div>
+    <nav>
+        <span class="arrow">&larr;</span>
+        <span class="arrow" id="nav_u">&nbsp;</span>
+        <span class="arrow" id="nav_d">&nbsp;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="slide_name">&nbsp;</a>
+    </nav>
+    <script type="text/javascript" src="../dist/main.js"></script>
+</body>
+</html>
